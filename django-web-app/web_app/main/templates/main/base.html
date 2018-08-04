@@ -12,24 +12,25 @@
 
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
-<body>
+<body onload="loadFunction()">
 
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>                        
-	      </button>
-	      <a class="navbar-brand" href="#">Hack-for-tomorrow</a>
-	    </div>
-	    <div class="collapse navbar-collapse" id="myNavbar">
-	      <ul class="nav navbar-nav">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>                        
+		      </button>
+		      <a class="navbar-brand" href="#">Hack-for-tomorrow</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="myNavbar">
+		      <ul class="nav navbar-nav">
 	        <li class="active"><a href="{% url 'main:home' %}">Home</a></li>
-	        <li ><a href="{% url 'main:upload' %}">upload</a></li>
-	        <li ><a href="{% url 'main:check' %}">check</a></li>
-	        <li ><a href="{% url 'main:result' %}">result</a></li>
+	        <li ><a href="{% url 'main:upload' %}">Upload</a></li>
+	        <li ><a href="{% url 'main:check' %}">Check</a></li>
+	        <li ><a href="{% url 'main:result' %}">Result</a></li>
+	        <li ><a id="continuousMonitoringButton" onClick="monitorAlert()" href="#">Continuous Monitoring</a></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 	        <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -47,7 +48,30 @@
 
 	<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
+    <script>
+    	function loadFunction(){
+    		continuous={{ continuous_monitoring }}
+    		if(continuous==1){
+    			document.getElementById('continuousMonitoringButton').style.color="Green";
+    		}
+    	}
+    	function monitorAlert(){
+    		if (continuous==0){
+    			continuous=1
+    			document.getElementById('continuousMonitoringButton').style.color="Green";
+	    		var xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( "GET", "{% url 'main:continuous' %}", true );
+				xmlHttp.send() 
+			}
+			else{
+				continuous=0
+				document.getElementById('continuousMonitoringButton').style.color="grey";
+				var xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( "GET", "{% url 'main:continuous_off' %}", true );
+				xmlHttp.send() 
+			}
+    	}
+    </script>
     {% block javascript %}
 	{% endblock %}
 </body>

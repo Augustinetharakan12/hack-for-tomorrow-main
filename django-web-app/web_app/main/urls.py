@@ -13,5 +13,7 @@ urlpatterns = [
     path('upload', views.upload.as_view(), name='upload'),
     path('result', views.result, name='result'),
     path('check', views.check, name='check'),
+    path('continuous', views.continuous, name='continuous'),
+    path('continuous_off', views.continuous_off, name='continuous_off'),
 
 ]
