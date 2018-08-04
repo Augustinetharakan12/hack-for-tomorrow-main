@@ -1,10 +1,57 @@
 <html>
  <head>
-  <link href="stylesheet.css" rel="stylesheet" type="text/css"> 
-  <script src="javascript.js" type="type/js"></script>
-  
-
- </head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link href="stylesheet.css" rel="stylesheet" type="text/css"> 
+  <script src="javascript.js" type="type/js"></script>-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head> 
  <body>
-     <h1>Parental filter</h1>
+  
+        <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                  <ul class="nav navbar-nav homefont">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                  <div class="navbar-header"> 
+                    <a class="navbar-brand logofont" href="#"><center>Parental filter</center></a>
+                  </div>
+                </div>
+              </nav>
+
+             <div class="container">
+              <div class="font" id="1">
+               <form action="/action_page.php" class="homefont font" method="get">
+                 <button type="button" onClick="clicked()" class="btn btn-primary">Choose files</button>
+                  Select files: <input id="file" type="file" class="hidden" name="myFile" multiple><br><br>
+                 <input type="submit">
+               </form>
+             </div>
+             </div>   
+             <div class="grid-container">
+                <div class="grid-item"><img src="lehenga1.png"></div>
+                <div class="grid-item"><img src="DSC_0105.jpg"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+              </div>
+                        
  </body>
+ <script>
+ function clicked()
+ {
+   document.getElementById("file").click();
+ }</script>
+</html>

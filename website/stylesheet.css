@@ -1,2 +1,47 @@
-.header{}
+
 .footer{}
+.navbar-inverse{background-color:#222;border-color:#080808}
+.navbar-inverse .navbar-brand{color:#9d9d9d}
+
+f
+.navbar-inverse .navbar-nav>li>a:hover{color:#fff;background-color:transparent}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.active>a:focus,.navbar-inverse .navbar-nav>.active>a:hover{color:#fff;background-color:#080808}.
+.nav{padding-left:0;margin-bottom:0;list-style:none}
+
+.navbar-inverse{background-color:rgb(41, 38, 38);border-color:#080808}
+.navbar-inverse .navbar-brand{color:rgb(118, 118, 209); text-align:right; }
+.navbar-inverse .navbar-brand:focus,.navbar-inverse .navbar-brand:hover{color:#ff6a00;background-color:transparent}
+.navbar-inverse .navbar-text{color:#fff}
+.navbar-inverse .navbar-nav>li>a{color:#fff}
+.navbar-inverse .navbar-nav>li>a:focus,.navbar-inverse .navbar-nav>li>a:hover{color:rgb(4, 185, 58);background-color:transparent}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar-inverse .navbar-nav>.active>a:hover{color:rgb(255, 255, 255);background-color:#080808}
+
+
+
+.homefont{font-family: 'Comfortaa', cursive;}
+.logofont{font-family: 'Gloria Hallelujah', cursive;font-size: 35px;}
+.form{text-align:center};
+body {font-family: Arial, Helvetica, sans-serif;}
+.font{font-weight:bold;}
+.btn-primary{color:#fff;background-color:#337ab7;border-color:#2e6da4}
+.btn-primary.focus,.btn-primary:focus{color:#fff;background-color:#286090;border-color:#122b40}
+.btn-primary:hover{color:#fff;background-color:#286090;border-color:#204d74}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  img {
+    width: 50%;
+    height:50%;
+}
