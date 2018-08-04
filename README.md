@@ -1,5 +1,5 @@
 ## Step 1:Clone the Repo :P 
-### (Before continuing change pwd to hack-for-tomorrow)
+### (Before continuing change pwd to hack-for-tomorrow-main)
 ## Step 2:Create virtual environment : $virtualenv -p python3 env
 ## Step 3:Activate the virtual environment :$source env/bin/activate
 ## Step 4:$pip install requirements.txt
