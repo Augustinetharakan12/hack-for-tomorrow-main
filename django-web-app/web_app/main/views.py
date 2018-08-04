@@ -39,14 +39,24 @@ class upload(View):
 		else:
 			data = {'is_valid': False}
 		return JsonResponse(data)
+
 def check(request):
 	test_datagen = ImageDataGenerator(rescale = 1./255)
 	classifier = load_model('main/save_data.h5')
-	result_set = test_datagen.flow_from_directory('main/photos/',target_size = (64, 64),batch_size = 32,class_mode = 'binary')
-	result = classifier.predict_generator(result_set)
-
+	result_set = test_datagen.flow_from_directory('main/photos/',target_size = (64, 64),batch_size = 32,class_mode = 'binary',shuffle=False)
+	result = classifier.predict_generator(result_set,workers=1)
+	al_result_fname=Result.objects.all().values_list('file_name',flat=True)
+	print(al_result_fname)
 	for i in range(len(result_set.filenames)):
 		print(result_set.filenames[i],result[i])
+		fname=result_set.filenames[i]
+		prob=result[i]
+		if fname not in al_result_fname:
+			obj=Result()
+			obj.file_name=fname
+			obj.file_url=fname
+			obj.percentage_safe=prob
+			obj.save()
 
 	clear_session()
 
@@ -54,8 +64,10 @@ def check(request):
 	del result_set
 	del classifier
 	del test_datagen
-	return redirect('main/result')
+	return redirect('/photo/result')
 
 def result(request):
 	data={}
+	all_obj=Result.objects.all()
+	data['all_obj']=all_obj
 	return render(request,'main/result.html',data)
