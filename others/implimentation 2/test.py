@@ -2,30 +2,43 @@ from tkinter import *
 from tkinter import messagebox
 import tkinter
 from tkinter.ttk import *
+tk=Tk()
+progress=Progressbar(tk,orient=HORIZONTAL,length=400,mode='determinate')
 class MyFirstGUI:
-    #tk=Tk()
-   # progress=Progressbar(tk,orient=HORIZONTAL,length=400,mode='determinate')
     def __init__(self, master):
         self.master = master
-        master.title("Search Your Child's PC")
+        master.title("CHILD SAFETY AWAITS")
 
-        self.label = Label(master, text="CHILD SAFETY AWAITS")
-        self.label.pack()
+       
 
-        self.scan_b = Button(master, text="scan", command=self.bar)
-        self.scan_b.pack()
+        self.fr=tkinter.Frame(width=768, height=576, bg="black", colormap="new")
+        self.fr.pack()
 
-        self.close_button = Button(master, text="Close", command=master.quit)
-        self.close_button.pack()
 
-    def bar(self):
-        import time
-        for i in range(100):
-            progress['value']=i
-            tk.update_idletasks()
-            time.sleep(.1)
-        quit()
 
-root = Tk()
-my_gui = MyFirstGUI(root)
+       
+
+def bar(self):
+    import time
+    for i in range(100):
+        progress['value']=i
+        tk.update_idletasks()
+        time.sleep(.1)
+    quit()
+def qt():
+    quit()    
+
+root = tk
+#my_gui = MyFirstGUI(root)
+root.resizable(width=FALSE,height=FALSE)
+root.geometry("900x600")
+fr=Frame(root)
+l = Label(text="Search Your Child's PC")
+l.pack()
+
+scan_b = Button( text="scan", command=bar)
+scan_b.place(x=200,y=250)
+
+close_button = Button(text="Close", command=quit)
+close_button.place(x=420,y=250)
 root.mainloop()
