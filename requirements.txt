@@ -1,5 +1,4 @@
 django==2.0.7
-python modules:
-	win32api
-	pyautogui
-	tkinter
+win32api
+pyautogui
+tkinter
