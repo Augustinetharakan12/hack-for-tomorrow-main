@@ -71,7 +71,7 @@ def check(request):
 		prob=result[i]
 		if fname not in al_result_fname:
 			obj=Result()
-			obj.file_name=fname
+			obj.file_name=fname[5:]
 			obj.file_url=fname
 			obj.percentage_safe=(1-prob)*100
 			obj.save()
@@ -110,7 +110,7 @@ def continuous(request):
 		result_set = test_datagen.flow_from_directory('main/screenshot/',target_size = (64, 64),batch_size = 32,class_mode = 'binary',shuffle=False)
 		result = classifier.predict_generator(result_set,workers=1)
 		clear_session()
-		print(result)
+		print(1-result)
 	schedule.every(1).seconds.do(job).tag('job', 'task')
 
 	while True:

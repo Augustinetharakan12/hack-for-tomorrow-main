@@ -1,14 +1,18 @@
 {% extends 'main/base.html' %}
 {% load staticfiles %}
 {% load mathfilters %}
-
+{% block active-result %}active{% endblock %}
 {% block title %}RESULT{% endblock %}
 
 {% block body %}
 	<p>RESULT</p>
 	<ul>
 		{% for i in all_obj %}
-			<li>{{ i.file_name }},{{ i.percentage_safe|floatformat:2 }}</li>
+			<li>{{ i.file_name }},{{ i.percentage_safe|floatformat:2 }}
+			{% if i.percentage_safe >= 20 %}
+				NOT SAFE
+			{% endif %}
+			</li>
 		{% endfor %}
 	</ul>
 {% endblock %}

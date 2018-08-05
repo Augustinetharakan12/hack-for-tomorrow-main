@@ -11,6 +11,11 @@
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <body onload="loadFunction()">
 
@@ -22,15 +27,15 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>                        
 		      </button>
-		      <a class="navbar-brand" href="#">Hack-for-tomorrow</a>
+		      <a class="navbar-brand logofont" href="#">Parental Filter</a>
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav">
-	        <li class="active"><a href="{% url 'main:home' %}">Home</a></li>
-	        <li ><a href="{% url 'main:upload' %}">Upload</a></li>
-	        <li ><a href="{% url 'main:check' %}">Check</a></li>
-	        <li ><a href="{% url 'main:result' %}">Result</a></li>
-	        <li ><a id="continuousMonitoringButton" onClick="monitorAlert()" href="#">Continuous Monitoring</a></li>
+
+	        <li class="homefont {% block active-upload %}{% endblock %}" ><a href="{% url 'main:upload' %}">Upload</a></li>
+	        <li class="homefont {% block active-check %}{% endblock %}" ><a href="{% url 'main:check' %}">Check</a></li>
+	        <li class="homefont {% block active-result %}{% endblock %}"><a href="{% url 'main:result' %}">Result</a></li>
+	        <li class="homefont"><a id="continuousMonitoringButton" onClick="monitorAlert()" href="#">Continuous Monitoring</a></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 	        <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
