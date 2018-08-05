@@ -32,7 +32,6 @@ def test(request):
 
 @global_data
 def home(request):
-	print(request.session['continuous_monitoring'])
 	if 'continuous_monitoring' not in request.session:
 		request.session['continuous_monitoring']=0
 	print(request.session['continuous_monitoring'])
@@ -74,7 +73,7 @@ def check(request):
 			obj=Result()
 			obj.file_name=fname
 			obj.file_url=fname
-			obj.percentage_safe=prob
+			obj.percentage_safe=(1-prob)*100
 			obj.save()
 
 	clear_session()
@@ -116,10 +115,9 @@ def continuous(request):
 
 	while True:
 		schedule.run_pending()
-		time.sleep(1)
 
 @global_data
-def continuous_off(request):
+def continuous_off(request):	
 	data={}
 	request.session['continuous_monitoring']=0
 	request.session.save()
@@ -129,3 +127,14 @@ def continuous_off(request):
 	except:
 		pass
 	return redirect('/photo/home')
+
+@global_data
+def delete_all_photos(request):
+	all_photos=Photo.objects.all()
+	for photo in all_photos:
+		photo.file.delete()
+		photo.delete()
+
+	all_result=Result.objects.all()
+	all_result.delete()
+	return redirect('/photo/upload')

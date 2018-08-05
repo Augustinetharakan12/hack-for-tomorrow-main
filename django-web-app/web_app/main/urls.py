@@ -15,5 +15,6 @@ urlpatterns = [
     path('check', views.check, name='check'),
     path('continuous', views.continuous, name='continuous'),
     path('continuous_off', views.continuous_off, name='continuous_off'),
+    path('delete_all_photos', views.delete_all_photos, name='delete_all_photos'),
 
 ]

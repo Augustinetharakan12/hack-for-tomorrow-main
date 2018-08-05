@@ -1,5 +1,6 @@
 {% extends 'main/base.html' %}
 {% load staticfiles %}
+{% load mathfilters %}
 
 {% block title %}RESULT{% endblock %}
 
@@ -7,7 +8,7 @@
 	<p>RESULT</p>
 	<ul>
 		{% for i in all_obj %}
-			<li>{{ i.file_name }},{{ i.percentage_safe }}</li>
+			<li>{{ i.file_name }},{{ i.percentage_safe|floatformat:2 }}</li>
 		{% endfor %}
 	</ul>
 {% endblock %}
