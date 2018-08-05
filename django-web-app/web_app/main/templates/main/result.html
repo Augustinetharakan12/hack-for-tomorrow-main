@@ -7,7 +7,7 @@
 {% block body %}
 	<h1>RESULT</h1>
 		{% for i in all_obj %}
-			<h3>{{ i.file_name }}      <div style="display:inline;color:green">{{ i.percentage_safe|floatformat:2 }}%</div>
+			<h3>{{ i.file_name }}      <div style="display:inline;color:green;font-weight:bold;">{{ i.percentage_safe|floatformat:2 }}%</div>
 			{% if i.percentage_safe >= 50 %}
 				<div style="display:inline;color:red">NOT SAFE</div>
 			{% endif %}
