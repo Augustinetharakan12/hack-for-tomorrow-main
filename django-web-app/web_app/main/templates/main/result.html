@@ -5,14 +5,13 @@
 {% block title %}RESULT{% endblock %}
 
 {% block body %}
-	<p>RESULT</p>
-	<ul>
+	<h1>RESULT</h1>
 		{% for i in all_obj %}
-			<li>{{ i.file_name }},{{ i.percentage_safe|floatformat:2 }}
+			<h3>{{ i.file_name }},{{ i.percentage_safe|floatformat:2 }}
 			{% if i.percentage_safe >= 20 %}
 				NOT SAFE
 			{% endif %}
-			</li>
+			</h3>
 		{% endfor %}
-	</ul>
+
 {% endblock %}
